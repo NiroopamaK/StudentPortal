@@ -1,0 +1,98 @@
+.student-form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fafafa;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+}
+
+.module-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #3f51b5;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.scores-container {
+  margin-bottom: 20px;
+}
+
+.score-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.score-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 10px; 
+}
+
+.score-label {
+  width: 200px; 
+}
+
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 3px;
+}
+
+.overall-score {
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-btn:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+.button-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-row button {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.button-row button:last-child {
+  margin-right: 0;
+}

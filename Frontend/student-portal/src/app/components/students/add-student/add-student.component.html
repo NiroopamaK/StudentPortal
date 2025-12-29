@@ -1,0 +1,94 @@
+<form [formGroup]="form" (ngSubmit)="submit()" class="student-form">
+  <h3 *ngIf="module" class="module-title">{{ module.moduleName }}</h3>
+
+  <!-- Student ID-->
+  <!-- Only 0 -99 values are allowed-->
+  <div class="form-group">
+    <label for="studentId">Student ID</label>
+    <input
+      id="studentId"
+      formControlName="studentId"
+      required
+      placeholder="0-99"
+    />
+    <div
+      *ngIf="form.get('studentId')?.touched && form.get('studentId')?.invalid"
+      class="error"
+    >
+      Student ID must be 1 or 2 digits
+    </div>
+  </div>
+
+  <!-- Student Name-->
+  <div class="form-group">
+    <label for="studentName">Student Name</label>
+    <input id="studentName" formControlName="studentName" required />
+    <div
+      *ngIf="
+        form.get('studentName')?.touched && form.get('studentName')?.invalid
+      "
+      class="error"
+    >
+      Student Name is required
+    </div>
+  </div>
+
+  <!-- Date of Birth-->
+  <div class="form-group">
+    <label for="dob">DOB</label>
+    <input id="dob" type="date" formControlName="dob" required />
+    <div
+      *ngIf="form.get('dob')?.touched && form.get('dob')?.invalid"
+      class="error"
+    >
+      DOB is required
+    </div>
+  </div>
+
+  <!-- Scores -->
+  <div formArrayName="scores">
+    <div
+      *ngFor="let group of scores.controls; let i = index"
+      [formGroupName]="i"
+      class="score-row"
+    >
+      <label class="score-label">
+        {{ group.get("componentName")?.value }}
+        ({{ group.get("componentWeight")?.value }}%)
+      </label>
+      <input type="number" formControlName="componentScore" required />
+      <div
+        *ngIf="
+          group.get('componentScore')?.touched &&
+          group.get('componentScore')?.invalid
+        "
+        class="error"
+      >
+        Score is required
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="form.invalid" class="submit-btn">
+    Submit
+  </button>
+
+  <div class="button-row">
+    <button
+      mat-stroked-button
+      color="primary"
+      type="button"
+      (click)="viewStudentsClick()"
+    >
+      View All Students
+    </button>
+    <button
+      mat-stroked-button
+      color="primary"
+      type="button"
+      (click)="gotoModulesClick()"
+    >
+      Go back to modules
+    </button>
+  </div>
+</form>

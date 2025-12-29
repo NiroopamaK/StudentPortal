@@ -1,0 +1,31 @@
+.dialog-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #3f51b5;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.dialog-content {
+  font-size: 16px;
+  color: #555;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px; 
+  padding-bottom: 10px;
+}
+
+.btn-primary {
+  min-width: 100px;
+  font-weight: 500;
+}
+
+.btn-secondary {
+  min-width: 100px;
+  font-weight: 500;
+}

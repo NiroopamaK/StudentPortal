@@ -1,0 +1,25 @@
+<h2 mat-dialog-title class="dialog-title">{{ data.title }}</h2>
+
+<mat-dialog-content class="dialog-content">
+  <p>{{ data.message }}</p>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+  <button
+    mat-raised-button
+    color="primary"
+    [mat-dialog-close]="2"
+    class="btn-primary"
+  >
+    {{ data.firstButtonText || "Yes" }}
+  </button>
+
+  <button
+    mat-stroked-button
+    color="accent"
+    [mat-dialog-close]="1"
+    class="btn-secondary"
+  >
+    {{ data.secondButtonText || "No" }}
+  </button>
+</mat-dialog-actions>

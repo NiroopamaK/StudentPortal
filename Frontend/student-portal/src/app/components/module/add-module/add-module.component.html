@@ -1,0 +1,70 @@
+<form [formGroup]="form" (ngSubmit)="submit()" class="module-form">
+  <h2>Add Module</h2>
+
+  <div class="form-group">
+    <label for="moduleCode">Module Code</label>
+    <input
+      id="moduleCode"
+      formControlName="moduleCode"
+      placeholder="Enter module code"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="moduleName">Module Name</label>
+    <input
+      id="moduleName"
+      formControlName="moduleName"
+      placeholder="Enter module name"
+    />
+  </div>
+
+  <!-- Custom module only -->
+  <div *ngIf="moduleType === 2" class="custom-module">
+    <div class="form-group">
+      <label for="componentCount">How many components?</label>
+      <input
+        type="number"
+        id="componentCount"
+        formControlName="componentCount"
+      />
+    </div>
+
+    <div
+      *ngIf="showComponents === true"
+      formArrayName="components"
+      class="components-container"
+    >
+      <div
+        *ngFor="let c of components.controls; let i = index"
+        [formGroupName]="i"
+        class="component-group"
+      >
+        <div class="form-group inline-group">
+          <label>Component Name</label>
+          <input
+            formControlName="componentName"
+            placeholder="Enter component name"
+          />
+        </div>
+
+        <div class="form-group inline-group">
+          <label>Component Weight</label>
+          <input
+            type="number"
+            formControlName="componentWeight"
+            placeholder="%"
+          />
+        </div>
+      </div>
+    </div>
+
+    <p *ngIf="weightError" class="error-message">
+      Total component weight must equal 100.
+    </p>
+  </div>
+
+  <div class="button-row">
+    <button type="submit" class="submit-btn">Submit</button>
+  </div>
+</form>
